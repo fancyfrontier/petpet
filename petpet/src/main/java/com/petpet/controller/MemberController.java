@@ -2,6 +2,7 @@ package com.petpet.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,7 +47,10 @@ public class MemberController {
 	
 	//進入會員中心(需驗證)
 	@GetMapping("/member/MemberCenter")
-	public String toMemberCenter(HttpServletRequest request) {
+	public String toMemberCenter(HttpServletRequest request, Model m) {
+		Integer memberid = (Integer)(request.getSession().getAttribute("memberid"));
+		Member member = memberService.findById(memberid);
+		m.addAttribute("member", member);
 		return "MemberCenter";
 	}
 

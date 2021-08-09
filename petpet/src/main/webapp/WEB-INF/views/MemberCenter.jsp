@@ -74,6 +74,10 @@
         td:hover {
             background-color: #73b43a;
         }
+        .picview{
+     		height:246px; 
+    		width:196px;
+		}
     </style>
     <script>
         function dataToWhite() {
@@ -210,7 +214,7 @@
     <div class="block">
 
         <div class="photoBlock">
-            相片
+            <img class="picview" src="${pageContext.request.contextPath}/product/display/${member.memberid}" />
         </div>
         <div class="textBlock">
             <div class="welcome">
