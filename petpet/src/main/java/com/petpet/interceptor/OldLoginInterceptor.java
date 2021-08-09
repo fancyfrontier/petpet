@@ -15,7 +15,7 @@ public class OldLoginInterceptor extends HandlerInterceptorAdapter {
 		System.out.println("Request URL: " + request.getRequestURL());
 		System.out.println("Sorry! This URL is no longer used, Redirect to /PleaseLogin");
 		
-		if(request.getSession().getAttribute("member") != null) {
+		if(request.getSession().getAttribute("memberid") != null) {
 			return true;
 		}else {
 			response.sendRedirect(request.getContextPath() + "/PleaseLogin");

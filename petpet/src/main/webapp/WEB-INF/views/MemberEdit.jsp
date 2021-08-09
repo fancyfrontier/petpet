@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="EXPIRES" CONTENT="0">
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員資料更改</title>
@@ -27,7 +30,7 @@
     crossorigin="anonymous"></script>
 	<!--using-FontAwesome-for-Icons-->
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-
+	
     
     
     <style>
@@ -101,11 +104,10 @@
 
         <!----------------------------------------------NEW!!Strat!!-------------------------------------------->
 
-
         <div class="block">
             <div class="dataBlock">
                 <h1>帳戶資料修改</h1>
-                <form method="post" action="XXXXXXXXX">
+                <form method="post" action="<c:url value='/UpdateMemberEdit'/>">
                     <div>
                         <h4 class="MemberNum">
                             <input class="MemberNum MemberNumInput" readonly type="Hidden" id="memberid" name="memberid"
@@ -120,10 +122,10 @@
                         <span class="input-group-text">性別</span>
                         <div class="btn-group">
                             <input type="hidden" id="genderInput" name="gender" value="${member.gender}">
-                            <c:set var="gd" value="${gender}" />
+                            <c:set var="gd" value="${member.gender}" />
                 		<select id="gender">
                 	<c:choose>
-                		<c:when test="${gender==null}">
+                		<c:when test="${member.gender==null}">
                 			<option selected>請選擇</option>
                 		</c:when>
                 		<c:otherwise>
@@ -131,7 +133,7 @@
                 		</c:otherwise>
                 	</c:choose>          		
                 	<c:choose>
-                		<c:when test="${gender=='男'}">
+                		<c:when test="${member.gender=='男'}">
                 			<option selected>男</option>
                 		</c:when>
                 		<c:otherwise>
@@ -139,7 +141,7 @@
                 		</c:otherwise>
                 	</c:choose>
                     <c:choose>
-                    	<c:when test="${gender=='女'}">
+                    	<c:when test="${member.gender=='女'}">
                     		<option selected>女</option>
                     	</c:when>
                     	<c:otherwise>
@@ -191,65 +193,16 @@
         <!--script-------->
         <script type="text/javascript">
 
-            /*----For Search bar---------------------*/
-            $(document).on('click', '.search', function () {
-                $('.search-bar').addClass('search-bar-active')
-            });
+        const choose = document.getElementById('gender');
 
-            $(document).on('click', '.search-cancel', function () {
-                $('.search-bar').removeClass('search-bar-active')
-            });
+        choose.addEventListener("input", getOption)
 
-            /*--login-sign-up-form-----------------*/
-            $(document).on('click', '.user,.already-acount', function () {
-                $('.form').addClass('login-active').removeClass('sign-up-active')
-            });
+        function getOption() {
+            var x = document.getElementById("gender")
+            document.getElementById("genderInput").value = x.options[x.selectedIndex].text;
+            console.log(document.getElementById("genderInput").value);
+        }
 
-            $(document).on('click', '.sign-up-btn', function () {
-                $('.form').addClass('sign-up-active').removeClass('login-active')
-            });
-
-            $(document).on('click', '.form-cancel', function () {
-                $('.form').removeClass('login-active').removeClass('sign-up-active')
-            });
-
-            /*---full-slider-script--------------*/
-            $(document).ready(function () {
-                $('#adaptive').lightSlider({
-                    adaptiveHeight: true,
-                    auto: true,
-                    item: 1,
-                    slideMargin: 0,
-                    loop: true
-                });
-            });
-            /*--Feature-slider--------------------*/
-            $(document).ready(function () {
-                $('#autoWidth').lightSlider({
-                    autoWidth: true,
-                    loop: true,
-                    onSliderLoad: function () {
-                        $('#autoWidth').removeClass('cS-hidden');
-                    }
-                });
-            });
-
-            /*----for-fix-menu-when-scroll----------------------*/
-            $(window).scroll(function () {
-                if ($(document).scrollTop() > 50) {
-                    $('.navigation').addClass('fix-nav');
-                }
-                else {
-                    $('.navigation').removeClass('fix-nav');
-                }
-            })
-            /*--for-responsive-menu-----------------*/
-            $(document).ready(function () {
-                $('.toggle').click(function () {
-                    $('.toggle').toggleClass('active')
-                    $('.navigation').toggleClass('active')
-                })
-            })
 
         </script>
 </body>

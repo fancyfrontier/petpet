@@ -49,12 +49,6 @@ public class MemberController {
 	public String toMemberCenter(HttpServletRequest request) {
 		return "MemberCenter";
 	}
-	
-	//進入修改會員(需驗證)
-		@GetMapping("/member/MemberEdit")
-		public String toMemberEdit(HttpServletRequest request) {
-			return "MemberEdit";
-		}
 
 	//進行註冊設定並送出驗證信,回傳空值是因為送出表單前會先被判斷式鎖住按鈕(RESTful)
 	@PostMapping("/Registermember")
@@ -96,7 +90,8 @@ public class MemberController {
 					
 		Member checkMember = memberService.findByEmailAndPassword(loginEmail, AESUtil.encryptString(loginPassword));
 		if(checkMember != null && checkMember.isEnabled() == true) {
-			request.getSession().setAttribute("member", checkMember);
+			
+			request.getSession().setAttribute("memberid", checkMember.getMemberid());
 
 		}else {
 			id = "accountNotNull";
