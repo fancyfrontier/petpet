@@ -38,7 +38,7 @@ public class MemberEditController {
 		member.setBirthday(request.getParameter("birthday"));
 		member.setMobile(request.getParameter("mobile"));
 		memberService.save(member);
-		
+
 		m.addAttribute("member", member);
 		
 		return "MemberCenter";
