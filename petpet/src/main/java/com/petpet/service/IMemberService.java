@@ -18,4 +18,6 @@ public interface IMemberService {
 	public Member findByVerificationcode(String code);
 	public boolean verify(String verificationCode);
 	Optional<Member> adminFindById(Integer memberid);
+	public Member findByPassword(String password);
+	public Member findByPasswordAndMemberid(String password, Integer memberid);
 }

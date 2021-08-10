@@ -221,7 +221,7 @@
             <table class="btnBlock" frame=void>
                 <tr>
                     <td onmousemove="dataToWhite()" onmouseout="dataBackColor()"><a id="data" href="<c:url value='/member/MemberEdit'/>">修改會員資料</a></td>
-                    <td onmousemove="pwdToWhite()" onmouseout="pwdBackColor()"><a id="pwd" href="/jQuery/jQueryLabsrcEEIT(20210606)/TeamWork/MemberPwdEdit.html">變更密碼</a></td>
+                    <td onmousemove="pwdToWhite()" onmouseout="pwdBackColor()"><a id="pwd" href="<c:url value='/member/MemberPwdEdit'/>">變更密碼</a></td>
                     <td onmousemove="orderToWhite()" onmouseout="orderBackColor()"><a id="order" href="/jQuery/jQueryLabsrcEEIT(20210606)/TeamWork/MemberOrder.html">訂單查詢</a></td>
                 </tr>
                 <tr>

@@ -162,7 +162,7 @@ pageEncoding="UTF-8" %>
             </div>
             <div class="btnDiv btnBlock container">
                 <div class="">
-                    <a href="#" style="width:400px;height:40px;" class="btn btn-success form-control  text-right">返回</a>
+                    <a href="<c:url value='/AdminShowAllMembers'/>" style="width:400px;height:40px;" class="btn btn-success form-control  text-right">返回</a>
                 </div>
             </div>	
         </form>

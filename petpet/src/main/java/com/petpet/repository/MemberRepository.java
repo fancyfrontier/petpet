@@ -22,5 +22,8 @@ public interface MemberRepository  extends JpaRepository<Member, Integer>{
 	public Member findByVerificationcode(String code);
 	
 	public Member findByResetPasswordToken(String token);
+	
+	public Member findByPassword(String password);
 
+	public Member findByPasswordAndMemberid(String password, Integer memberid);
 }

@@ -67,6 +67,10 @@
             margin: 0 auto;
             border: none;
         }
+        .tip {
+            font-size: 1px;
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -165,7 +169,7 @@
                             <input class="button btn btn-success" type="submit"
                                 style="width:200px;height:40px;" value="修改">
                             <input class="button btn btn-success" type="button"
-                                style="width:200px;height:40px;" value="返回" href="#">
+                                style="width:200px;height:40px;" value="返回" onclick="backBtn()">
                     </div>
                 </form>
                 <div class="last"></div>
@@ -191,6 +195,10 @@
         <!--script-------->
         <script type="text/javascript">
 
+		function backBtn(){
+			window.location.assign("<c:url value='/member/MemberCenter'/>");
+		}
+        
         const choose = document.getElementById('gender');
 
         choose.addEventListener("input", getOption)

@@ -101,4 +101,13 @@ public class MemberService implements IMemberService {
 		return memberDAO.findById(memberid);
 	}
 	
+	@Override
+	public Member findByPassword(String password) {
+		return memberDAO.findByPassword(password);
+	}
+	
+	@Override
+	public Member findByPasswordAndMemberid(String password, Integer memberid) {
+		return memberDAO.findByPasswordAndMemberid(password, memberid);
+	}
 }
