@@ -172,11 +172,11 @@
         });
         console.log(ckdlist.toString());
         ckdlist.forEach (memberid =>
-        $.get ("/petpet/delproduct?memberid=" + memberid, function() {
-                alert( "刪除成功" );
-                location.reload() ;
+        $.get ("/petpet/delproduct?memberid=" + memberid, function() {  
             })
-        )   
+        )
+        alert( "刪除成功" );
+        location.reload() ; 
     })
     
 })
