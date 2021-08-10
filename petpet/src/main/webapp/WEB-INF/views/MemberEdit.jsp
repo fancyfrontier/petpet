@@ -28,8 +28,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
-	<!--using-FontAwesome-for-Icons-->
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 	
     
     
@@ -107,7 +105,7 @@
         <div class="block">
             <div class="dataBlock">
                 <h1>帳戶資料修改</h1>
-                <form method="post" action="<c:url value='/UpdateMemberEdit'/>">
+                <form id="form" enctype='multipart/form-data' method="post" action="<c:url value='/UpdateMemberEdit'/> ">
                     <div>
                         <h4 class="MemberNum">
                             <input class="MemberNum MemberNumInput" readonly type="Hidden" id="memberid" name="memberid"
@@ -161,7 +159,7 @@
                     </div>
                     <div class="input-group flex-nowrap input-group-lg div">
                         <span class="input-group-text">大頭照</span>
-                        <input type="file" class="form-control" placeholder="" name="mobile" value="${member.memberid}">
+                        <input type="file" class="form-control" placeholder="" name="image" id="imgupload">
                     </div>
                     <div class="btnBlock gap-2 col-6 mx-auto container">
                             <input class="button btn btn-success" type="submit"
@@ -202,7 +200,6 @@
             document.getElementById("genderInput").value = x.options[x.selectedIndex].text;
             console.log(document.getElementById("genderInput").value);
         }
-
 
         </script>
 </body>
