@@ -227,7 +227,7 @@
                 <tr>
                     <td onmousemove="wishToWhite()" onmouseout="wishBackColor()"><a id="wish" href="/jQuery/jQueryLabsrcEEIT(20210606)/TeamWork/MemberWish.html">我的收藏</a></td>
                     <td onmousemove="historyToWhite()" onmouseout="historyBackColor()"><a id="history" href="/jQuery/jQueryLabsrcEEIT(20210606)/TeamWork/MemberHistory.html">消費紀錄</a></td>
-                    <td onmousemove="sendToWhite()" onmouseout="sendBackColor()"><a id="send" href="/jQuery/jQueryLabsrcEEIT(20210606)/TeamWork/MemberAddress.html">常用配送</a></td>
+                    <td onmousemove="sendToWhite()" onmouseout="sendBackColor()"><a id="send" href="<c:url value='/member/MemberAdress'/>">常用配送</a></td>
                 </tr>
             </table>
         </div>
