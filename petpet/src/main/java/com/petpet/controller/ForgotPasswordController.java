@@ -39,7 +39,7 @@ public class ForgotPasswordController {
 	
 	//輸入信箱點選送出時觸發,產生亂數驗證碼並呼叫方法送出變更密碼的驗證信
 	@PostMapping("/ForgotPassWordSend")
-	public String processForgotPasswordForm(@RequestParam(name = "email") String email,
+	public String ForgotPassWordSend(@RequestParam(name = "email") String email,
 											HttpServletRequest request,
 											Model model) {
 		
