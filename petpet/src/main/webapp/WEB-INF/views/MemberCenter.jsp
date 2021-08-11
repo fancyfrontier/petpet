@@ -258,44 +258,6 @@
             $('.form').removeClass('login-active').removeClass('sign-up-active')
         });
 
-        /*---full-slider-script--------------*/
-        $(document).ready(function () {
-            $('#adaptive').lightSlider({
-                adaptiveHeight: true,
-                auto: true,
-                item: 1,
-                slideMargin: 0,
-                loop: true
-            });
-        });
-        /*--Feature-slider--------------------*/
-        $(document).ready(function () {
-            $('#autoWidth').lightSlider({
-                autoWidth: true,
-                loop: true,
-                onSliderLoad: function () {
-                    $('#autoWidth').removeClass('cS-hidden');
-                }
-            });
-        });
-
-        /*----for-fix-menu-when-scroll----------------------*/
-        $(window).scroll(function () {
-            if ($(document).scrollTop() > 50) {
-                $('.navigation').addClass('fix-nav');
-            }
-            else {
-                $('.navigation').removeClass('fix-nav');
-            }
-        })
-        /*--for-responsive-menu-----------------*/
-        $(document).ready(function () {
-            $('.toggle').click(function () {
-                $('.toggle').toggleClass('active')
-                $('.navigation').toggleClass('active')
-            })
-        })
-
     </script>
 </body>
 </html>

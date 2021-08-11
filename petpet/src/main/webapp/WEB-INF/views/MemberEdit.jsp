@@ -29,7 +29,16 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
 	
+    <!-- NEW!!!! ------------------------>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"
+        integrity="sha512-2eMmukTZtvwlfQoG8ztapwAH5fXaQBzaMqdljLopRSA0i6YKM8kBAOrSSykxu9NN9HrtD45lIqfONLII2AFL/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="<c:url value='/js/croppie.min.js' />"></script>
+    
+    <!-- NEW!!!!!---------------------->
     
     <style>
         .block {
@@ -71,6 +80,33 @@
             font-size: 1px;
             color: red;
         }
+        
+        
+        
+        
+        .file-btn input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .actions {
+            padding: 5px 0;
+        }
+
+        .actions button {
+            margin-right: 5px;
+        }
+
+        .crop {
+            display: none
+        }
+        
+        
+        
     </style>
 </head>
 <body>
@@ -163,9 +199,9 @@
                     </div>
                     <div class="input-group flex-nowrap input-group-lg div">
                         <span class="input-group-text">大頭照</span>
-                        <input type="file" class="form-control" placeholder="" name="image" id="imgupload">
+                        <input type="file" class="form-control" placeholder="" name="image" id="upload">
                     </div>
-                    <div class="btnBlock gap-2 col-6 mx-auto container">
+			        <div class="btnBlock gap-2 col-6 mx-auto container">
                             <input class="button btn btn-success" type="submit"
                                 style="width:200px;height:40px;" value="修改">
                             <input class="button btn btn-success" type="button"
