@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>MemberCenter</title>
+<title>會員中心</title>
 	<!--stylesheet-->
     <link rel='stylesheet' href="<c:url value='/css/style.css' />" type="text/css" />	
     <!--jQuery-------->
@@ -24,7 +24,7 @@
             width: 1300px;
             height: 400px;
             margin: auto;
-            margin-top: 100px;
+            margin-top: 50px;
             display: flex;
             flex-wrap: wrap;
             border-radius: 10px;
@@ -134,7 +134,7 @@
         }
     </script>
 </head>
-<body>
+<body background="<c:url value='/images/petBackground.jpg' />" style="background-repeat:no-repeat;">
     <!--navigation-------------------------------->
     <nav>
         <!--social-link-and-phont-number-->
@@ -156,7 +156,7 @@
         <div class="navigation">
             <!--logo---------->
             <a href="#" class="logo">
-                <img src="images/PetPetLogo.png" />
+                <img src="<c:url value='/images/PetPetLogo.png' />" />
             </a>
             <!--menu-icon---------------------->
             <div class="toggle"></div>
