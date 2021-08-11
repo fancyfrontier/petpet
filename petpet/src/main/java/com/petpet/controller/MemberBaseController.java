@@ -1,16 +1,20 @@
 package com.petpet.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,9 +28,8 @@ import com.petpet.util.Utility;
 import io.lettuce.core.dynamic.annotation.Param;
 import net.bytebuddy.utility.RandomString;
 
-
 @Controller
-public class MemberController {
+public class MemberBaseController {
 	
 	@Autowired
 	private MemberService memberService;
@@ -134,30 +137,16 @@ public class MemberController {
 		return map;
 	}
 	
-	@PostMapping("/UserGetMemberData")
-	public String getMemberLogin(@RequestParam(name = "memberid") Integer memberid, Model m) {
-		
-		Member member = memberService.findById(memberid);
-		m.addAttribute("member", member);
-		return "UserUpdatePage";
+	//匯出資料庫圖片
+	@GetMapping("/showPhoto/display/{memberid}")
+	@ResponseBody
+	public void showImage(@PathVariable("memberid") Integer memberid, HttpServletResponse response, Optional<Member> member) throws ServletException, IOException {
+		member = memberService.adminFindById(memberid);
+		response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+		response.getOutputStream().write(member.get().getPhoto());
+		response.getOutputStream().close();
 	}
-	
-	@PostMapping("/UserUpdateMemberData")
-	public String updateData(@RequestParam(name = "memberid") Integer memberid, HttpServletRequest request, Model m) {
-		
-		Member member = memberService.findById(memberid);
-		member.setFullname(request.getParameter("fullname"));
-		member.setGender(request.getParameter("gender"));
-		member.setBirthday(request.getParameter("birthday"));
-		member.setMobile(request.getParameter("mobile"));
-		memberService.save(member);
-		
-		Member queryMember = memberService.findById(memberid); 		
-		m.addAttribute("member", queryMember);
-		
-		return "UserShowLogin";
-	}
-	
+
 	//登出清除Session
 	@GetMapping("/Logout")
 	public String logout(HttpServletRequest request) {
@@ -166,10 +155,5 @@ public class MemberController {
 		}
 		return "index";
 	}
-	
-
-
-	
-
 	
 }

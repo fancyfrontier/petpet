@@ -52,8 +52,7 @@
                             <h2><b>會員管理</b></h2>
                         </div>
                         <div class="col-sm-3">
-						    <a href="${pageContext.request.contextPath}/index"  class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>新增商品</span></a>
-						    <a href="#deleteEmployeeModal" class="btn btn-danger"><i class="material-icons">&#xE15C;</i> <span>刪除</span></a>						
+						    <a href="#deleteEmployeeModal" class="btn btn-danger"><i class="material-icons">&#xE15C;</i> <span>大量刪除</span></a>						
 				    	</div>
                         <div class="col-sm-3">
                             <div class="search-box">
@@ -102,7 +101,7 @@
 						    	</span>
 			                <td>${memberData.memberid}</td>
 			                <td>${memberData.fullname}</td>
-			                <td><img class="picview" src="${pageContext.request.contextPath}/product/display/${memberData.memberid}" /></td>
+			                <td><img class="picview" src="${pageContext.request.contextPath}/showPhoto/display/${memberData.memberid}" /></td>
 			                <td>${memberData.gender}</td>
 			                <td>${memberData.birthday}</td>
 			                <td>${memberData.mobile}</td>
@@ -114,7 +113,7 @@
 			                <td>${memberData.address}</td>
 			                <td>
 			                <a href='/petpet/AdminShowMember?memberid=${memberData.memberid}' class="edit"   value = "修改"><i class="material-icons" data-toggle="tooltip" title="修改">edit</i> 
-			                <a href="/petpet/delproduct?memberid=${memberData.memberid}" class="delete" id="delete"  value="刪除"><i class="material-icons" data-toggle="tooltip" title="刪除">delete_forever</i>
+			                <a href="/petpet/DeleteMember?memberid=${memberData.memberid}" class="delete" id="delete"  value="刪除"><i class="material-icons" data-toggle="tooltip" title="刪除">delete_forever</i>
 			                </td>
 			            </tr>
                     </c:forEach>
@@ -134,7 +133,7 @@
  $(document).ready(function() {
 	 $(".delete").on("click", function() {
 	        if (confirm("你確定要刪除這個商品嗎")) {
-	            $.get( "/petpet/delproduct?memberid="+memberid, function() {
+	            $.get( "/petpet/DeleteMember?memberid="+memberid, function() {
 	                alert( "刪除成功" );
 	                location.reload() ;
 	            });
@@ -170,13 +169,20 @@
                 ckdlist.push(id);
             }
         });
-        console.log(ckdlist.toString());
-        ckdlist.forEach (memberid =>
-        $.get ("/petpet/delproduct?memberid=" + memberid, function() {  
-            })
-        )
-        alert( "刪除成功" );
-        location.reload() ; 
+
+		if (confirm("你確定要刪除這個商品嗎")) {
+            	ckdlist.forEach (memberid =>
+                $.get ("/petpet/DeleteMember?memberid=" + memberid, function() {
+                    
+                    })
+                )
+                alert( "刪除成功" );
+                location.reload() ; 
+           
+        }
+        return false;
+        
+        
     })
     
 })

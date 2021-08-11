@@ -95,7 +95,7 @@ pageEncoding="UTF-8" %>
             </div>
             <div class="input-group input-group-lg inputBlock">
                 <span class="input-group-text ">會員大頭照</span>
-                <img src="${pageContext.request.contextPath}/product/display/${memberid}" class="image" alt="">
+                <img src="${pageContext.request.contextPath}/showPhoto/display/${memberid}" class="image" alt="">
             </div>
             <input type="file" class="form-control inputBlock" placeholder="" name="image" id="imgupload" required="required">
             <div class="input-group input-group-lg inputBlock">

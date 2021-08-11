@@ -212,7 +212,7 @@
     <div class="block">
 
         <div class="photoBlock">
-            <img class="picview" src="${pageContext.request.contextPath}/product/display/${member.memberid}" />
+            <img class="picview" src="${pageContext.request.contextPath}/showPhoto/display/${member.memberid}" />
         </div>
         <div class="textBlock">
             <div class="welcome">
