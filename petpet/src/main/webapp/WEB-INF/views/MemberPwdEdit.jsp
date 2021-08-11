@@ -209,7 +209,7 @@
                 					Lock();
                 				}else {
                 					passwordExist = false;
-                					message = "帳號重複，請重新輸入帳號";
+                					message = "請輸入舊的密碼";
                 					Lock();
                 				}
                 				div.innerHTML = "<font color='red' size='-2'>" + message + "</font>";
