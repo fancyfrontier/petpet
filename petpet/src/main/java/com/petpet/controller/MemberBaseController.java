@@ -99,11 +99,6 @@ public class MemberBaseController {
 		Map<String, String> map = new HashMap<>();
 		Member checkMember = memberService.findByEmailAndPassword(loginEmail, AESUtil.encryptString(loginPassword));
 		Member wrongPwdMember = memberService.findByEmail(loginEmail);
-		Date updateDate = wrongPwdMember.getUpdatepwddate();
-		String dateToStr = updateDate.toInstant()
-				.atOffset(ZoneOffset.UTC)
-				.format( DateTimeFormatter.ofPattern("yyyy-MMM-dd"));
-		
 		
 		if(checkMember != null && checkMember.isEnabled() == true) {
 			
@@ -117,6 +112,11 @@ public class MemberBaseController {
 				id = "accountNotNull";
 			}else {
 				if(memberOldPwd.equals(inputPwd)) {
+					Date updateDate = wrongPwdMember.getUpdatepwddate();
+					String dateToStr = updateDate.toInstant()
+							.atOffset(ZoneOffset.UTC)
+							.format( DateTimeFormatter.ofPattern("yyyy-MMM-dd"));
+					map.put("date", dateToStr);
 					id = "old";
 				}else {
 					id = "accountNotNull";
@@ -124,7 +124,7 @@ public class MemberBaseController {
 			}
 		}
 		map.put("loginEmail", id);
-		map.put("date", dateToStr);
+		
 		return map;
 	}
 	

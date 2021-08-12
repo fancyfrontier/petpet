@@ -114,6 +114,8 @@
                     <div class="btnBlock gap-2 col-6 mx-auto container div">
                             <input class="button btn btn-success" type="submit"
                                 style="width:200px;height:40px;" value="寄送">
+                            <input class="button btn btn-success" type="button"
+                                style="width:200px;height:40px;" value="返回" onclick="backBtn()">
                     </div>
                 </form>
                 <div class="last"></div>
@@ -138,7 +140,11 @@
 
         <!--script-------->
         <script type="text/javascript">
-
+        
+        	function backBtn(){
+				window.location.assign("<c:url value='/index'/>");
+			}
+			
         </script>
 </body>
 </html>

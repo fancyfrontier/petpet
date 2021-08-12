@@ -212,7 +212,7 @@
     <div class="block">
 
         <div class="photoBlock">
-            <img class="picview" src="${pageContext.request.contextPath}/showPhoto/display/${member.memberid}" />
+            <img class="picview" src="${pageContext.request.contextPath}/showPhoto/display/${member.memberid}" onerror="nofind()" />
         </div>
         <div class="textBlock">
             <div class="welcome">
@@ -236,6 +236,12 @@
     <!--script-------->
     <script type="text/javascript">
 
+    	function nofind(){
+    	  	var img=event.srcElement;
+    	  	img.src="<c:url value='/images/NoPhoto.jpg' />"; //替換的圖片
+    	  	img.onerror=null; //控制不要一直觸發錯誤
+    	}
+    
         /*----For Search bar---------------------*/
         $(document).on('click', '.search', function () {
             $('.search-bar').addClass('search-bar-active')
