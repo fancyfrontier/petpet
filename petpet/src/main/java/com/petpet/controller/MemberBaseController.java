@@ -1,6 +1,8 @@
 package com.petpet.controller;
 
 import java.io.IOException;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -92,18 +94,37 @@ public class MemberBaseController {
 															@RequestParam(value = "loginPassword") String loginPassword,
 															HttpServletRequest request, Model m) {
 		String id = "";
+		
 		boolean checkVerify = false;
 		Map<String, String> map = new HashMap<>();
-					
 		Member checkMember = memberService.findByEmailAndPassword(loginEmail, AESUtil.encryptString(loginPassword));
+		Member wrongPwdMember = memberService.findByEmail(loginEmail);
+		Date updateDate = wrongPwdMember.getUpdatepwddate();
+		String dateToStr = updateDate.toInstant()
+				.atOffset(ZoneOffset.UTC)
+				.format( DateTimeFormatter.ofPattern("yyyy-MMM-dd"));
+		
+		
 		if(checkMember != null && checkMember.isEnabled() == true) {
 			
 			request.getSession().setAttribute("memberid", checkMember.getMemberid());
 
 		}else {
-			id = "accountNotNull";
+			String memberOldPwd = wrongPwdMember.getOldpassword();
+			String inputPwd = AESUtil.encryptString(loginPassword);
+			
+			if(wrongPwdMember.getOldpassword() == null) {
+				id = "accountNotNull";
+			}else {
+				if(memberOldPwd.equals(inputPwd)) {
+					id = "old";
+				}else {
+					id = "accountNotNull";
+				}
+			}
 		}
 		map.put("loginEmail", id);
+		map.put("date", dateToStr);
 		return map;
 	}
 	

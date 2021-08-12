@@ -20,4 +20,5 @@ public interface IMemberService {
 	Optional<Member> adminFindById(Integer memberid);
 	public Member findByPassword(String password);
 	public Member findByPasswordAndMemberid(String password, Integer memberid);
+	public String findByOldpassword(String password);
 }

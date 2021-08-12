@@ -50,9 +50,6 @@ public class Member {
 	@Column(name = "CreateTime", nullable = true, updatable = false)
 	private Date createtime;
 	
-	@Column(name = "UpdatePwdDate", nullable = true)
-	private Timestamp updatepwddate;
-	
 	@Column(name = "PostalCode", nullable = true)
 	private String postalcode;
 	
@@ -80,6 +77,12 @@ public class Member {
 	@Column(name = "Reset_Password_Token")
 	private String resetPasswordToken;
 	
+	@Column(name = "OldPassword", nullable = true)
+	private String oldpassword;
+	
+	@Column(name = "UpdatePwdDate", nullable = true)
+	private Date updatepwddate;
+
 	public Member() {
 	}
 	
@@ -171,14 +174,6 @@ public class Member {
 		this.createtime = createtime;
 	}
 
-	public Timestamp getUpdatepwddate() {
-		return updatepwddate;
-	}
-
-	public void setUpdatepwddate(Timestamp updatepwddate) {
-		this.updatepwddate = updatepwddate;
-	}
-
 	public String getPostalcode() {
 		return postalcode;
 	}
@@ -251,6 +246,20 @@ public class Member {
 		this.resetPasswordToken = resetPasswordToken;
 	}
 
-	
+	public String getOldpassword() {
+		return oldpassword;
+	}
+
+	public void setOldpassword(String oldpassword) {
+		this.oldpassword = oldpassword;
+	}
+
+	public Date getUpdatepwddate() {
+		return updatepwddate;
+	}
+
+	public void setUpdatepwddate(Date updatepwddate) {
+		this.updatepwddate = updatepwddate;
+	}
 	
 }

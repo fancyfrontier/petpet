@@ -1,5 +1,6 @@
 package com.petpet.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -55,9 +56,14 @@ public class MemberPwdEditController {
 	@PostMapping("/UpdateMemberPwdEdit")
 	public String updateMemberEdit(@RequestParam(name = "memberid") Integer memberid, 
 								   @RequestParam(name = "newpassword") String newpassword,
+								   @RequestParam(value = "oldpassword") String oldpassword,
 								   HttpServletRequest request, Model m) {
-			
+		
 		Member member = memberService.findById(memberid);
+		
+		member.setUpdatepwddate(new Date());
+		member.setOldpassword(AESUtil.encryptString(oldpassword));
+		
 		member.setPassword(AESUtil.encryptString(newpassword));
 		memberService.save(member);
 		request.getSession().invalidate();

@@ -110,4 +110,9 @@ public class MemberService implements IMemberService {
 	public Member findByPasswordAndMemberid(String password, Integer memberid) {
 		return memberDAO.findByPasswordAndMemberid(password, memberid);
 	}
+	
+	@Override
+	public String findByOldpassword(String password) {
+		return memberDAO.findByOldpassword(password);
+	}
 }
