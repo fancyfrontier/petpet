@@ -154,13 +154,13 @@
             <form method="post" action="<c:url value='/Registermember'/>">
                 <input type="email" style="font-size:16px" id="signInput" placeholder="請輸入電子信箱" name="email">
                 <span id="signInputShowBox" class="tip"></span>
-                <input type="password" style="font-size:16px" id="signInputPwd" placeholder="請輸入8~20字元的英數字，不可有特殊符號" name="password"
+                <input type="password" style="font-size:16px" id="signInputPwd" placeholder="請輸入8~20字元的英數字" name="password"
                 	 onKeyUp=pwStrength(this.value) onBlur=pwStrength(this.value)>
         		<table width="300" border="1" cellspacing="0" cellpadding="1" bordercolor="#eeeeee" height="22" style='display:inline'>  
         		<tr align="center" bgcolor="#f5f5f5">
-        		<td width="100px" id="strength_L">低</td>  
-        		<td width="100px" id="strength_M">中</td>  
-        		<td width="100px" id="strength_H">高</td>  
+        		<td width="100px" id="strength_L"></td>  
+        		<td width="100px" id="strength_M"></td>  
+        		<td width="100px" id="strength_H"></td>  
         		</tr>  
         		</table><br>  
                 
@@ -919,19 +919,19 @@
 ////////////////////////////////////////////////計算密碼強度//////////////////////////////////////////////////////
 	
 	
-	//判断输入密码的类型  
+	//判斷輸入密碼的類型 
         function CharMode(iN){  
-        if (iN>=48 && iN <=57) //数字  
+        if (iN>=48 && iN <=57) //數字  
         return 1;  
-        if (iN>=65 && iN <=90) //大写  
+        if (iN>=65 && iN <=90) //大寫  
         return 2;  
-        if (iN>=97 && iN <=122) //小写  
+        if (iN>=97 && iN <=122) //小寫  
         return 4;  
         else  
         return 8;   
         }  
         //bitTotal函数  
-        //计算密码模式  
+        //計算密碼模式
         function bitTotal(num){  
         modes=0;  
         for (i=0;i<4;i++){  
@@ -940,19 +940,19 @@
         }  
         return modes;  
         }  
-        //返回强度级别  
+        //確認密碼安全等級  
         function checkStrong(sPW){  
             if (sPW.length<=4)  
-            return 0; //密码太短  
+            return 0; //密碼太短  
             Modes=0;  
             for (i=0;i<sPW.length;i++){  
-            //密码模式  
+            //密碼模式  
             Modes|=CharMode(sPW.charCodeAt(i));  
             }  
             return bitTotal(Modes);  
         }  
           
-        //显示颜色  
+        //顯示顏色  
         function pwStrength(pwd){  
         O_color="#eeeeee";  
         L_color="#FF0000";  
@@ -983,15 +983,9 @@
         document.getElementById("strength_H").style.background=Hcolor;  
         return;  
         }  
-
-    	
-    	
     	
     ////////////////////////////////////////////////計算密碼強度/////////////////////////////////////////////////////	
-	
-	
-	
-	/*------------------------------NEW!!!!-----------------------------*/
+
 
 	
 
