@@ -252,7 +252,7 @@
                                     newPassword = true;
                                     pwdDoubleCheck = true;
                                 }else{
-                                	newInputPwdShowBox.innerHTML = "這是變更前的密碼，你傻逼";
+                                	newInputPwdShowBox.innerHTML = "您輸入了變更前的密碼";
                                     newPassword = false;
                                     pwdDoubleCheck = false;
                                  }
