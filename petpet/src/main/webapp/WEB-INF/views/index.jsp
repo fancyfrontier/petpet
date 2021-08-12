@@ -19,7 +19,7 @@
 			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			crossorigin="anonymous"></script>
     <!--light-slider-js-->
-    <script type="text/javascript" src="<c:url value='/js/jQuery.js' />"></script>
+<%--     <script type="text/javascript" src="<c:url value='/js/jQuery.js' />"></script> --%>
 	<script type="text/javascript" src="<c:url value='/js/lightslider.js' />"></script>
     <!--fav-icon------------------->
     <link rel="shortcut icon" href="${basePath}/EEIT3101/images/Member/fav-icon.ico" />

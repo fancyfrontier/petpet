@@ -181,7 +181,7 @@
                     <i class="fas fa-search"></i>
                 </a>
                 <!--user-->
-                <a href="javascript:void(0);" class="user">
+                <a href="<c:url value='/Logout'/>" class="user">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
                 <!--cart-icon-->

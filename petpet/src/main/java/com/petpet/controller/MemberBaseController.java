@@ -150,10 +150,9 @@ public class MemberBaseController {
 	//登出清除Session
 	@GetMapping("/Logout")
 	public String logout(HttpServletRequest request) {
-		if(request.getSession().getAttribute("member")!=null) {
+		if(request.getSession().getAttribute("memberid")!=null) {
 			request.getSession().invalidate();
 		}
 		return "index";
 	}
-	
 }
