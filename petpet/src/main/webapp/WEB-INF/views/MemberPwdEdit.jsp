@@ -125,10 +125,12 @@
                         <input type="password" class="form-control" placeholder="請輸入原本的密碼" id="oldpassword" name="oldpassword" value="">
                         <span id="oldPwdShowBox" class="tip span"></span>
                     </div>
-                    <div class="input-group input-group-lg div">
+                    <div class="input-group input-group-lg div dataBlock">
                         <span class="input-group-text ">密碼</span>
                         <input type="password" class="form-control" placeholder="請輸入密碼" id="newpassword" name="newpassword" value=""><br>
                         <span id="newPwdShowBox" class="tip span"></span>
+  
+                    	
                     </div>
                     <div class="input-group input-group-lg div">
                         <span class="input-group-text ">確認密碼</span>
@@ -334,6 +336,7 @@
                 console.log("passwordExist  " + passwordExist);
             }
 
+			
         </script>
 </body>
 </html>
