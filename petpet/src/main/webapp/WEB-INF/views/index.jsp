@@ -734,6 +734,9 @@
     				if(emailResult.loginEmail.length == 3){
     					loginAccount = false;
     					loginMessage = "您輸入的是舊的密碼" + "　且上次更新日期為 " + emailResult.date;
+    				}else if(emailResult.loginEmail.length == 7){
+    					loginAccount = false;
+    					loginMessage = "請立刻到信箱進行驗證";
         			}else{
         				loginAccount = false;
     					loginMessage = "帳號或密碼錯誤";

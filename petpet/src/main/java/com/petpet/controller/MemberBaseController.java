@@ -105,12 +105,16 @@ public class MemberBaseController {
 			request.getSession().setAttribute("memberid", checkMember.getMemberid());
 
 		}else {
-			String memberOldPwd = wrongPwdMember.getOldpassword();
-			String inputPwd = AESUtil.encryptString(loginPassword);
-			
-			if(wrongPwdMember.getOldpassword() == null) {
+			if(wrongPwdMember == null) {
 				id = "accountNotNull";
-			}else {
+			}else if(wrongPwdMember != null && wrongPwdMember.isEnabled() == false) {
+				id = "goemail";
+			}else if(wrongPwdMember != null && wrongPwdMember.isEnabled() == true && wrongPwdMember.getOldpassword() == null) {
+				id = "accountNotNull";
+			}
+			else {
+				String memberOldPwd = wrongPwdMember.getOldpassword();
+				String inputPwd = AESUtil.encryptString(loginPassword);
 				if(memberOldPwd.equals(inputPwd)) {
 					Date updateDate = wrongPwdMember.getUpdatepwddate();
 					String dateToStr = updateDate.toInstant()
